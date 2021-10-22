@@ -104,3 +104,32 @@ app.mount("#game");
 function getRandomValue(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+// vanilla code
+
+let message = "hello";
+let longMessage = message + "world";
+console.log(longMessage);
+
+message = "world";
+
+console.log(longMessage);
+
+let data = {
+  name: "abhishek",
+  last: "kumar",
+};
+
+const handler = {
+  set(target, key, value) {
+    if (key === "last") {
+      target[key] = value;
+    }
+  },
+};
+
+let proxy = new Proxy(data, handler);
+
+proxy.last = "demo";
+
+console.log(proxy);
